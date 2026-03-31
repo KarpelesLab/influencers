@@ -8,12 +8,12 @@ YAML files in `data/` are the source of truth. Each file covers one category:
 
 | File | Contents | Count | Source |
 |------|----------|-------|--------|
-| `celebrities.yaml` | Actors, musicians, athletes, etc. | ~18 | Manual curation |
-| `influencers.yaml` | Social media creators | ~10 | Manual curation |
-| `politicians.yaml` | Heads of state, elected officials | ~8 | Manual curation |
-| `journalists.yaml` | Anchors, commentators, podcasters | ~5 | Manual curation |
-| `organizations.yaml` | UN, NASA, FIFA, etc. | ~6 | Manual curation |
+| `celebrities.yaml` | Actors, musicians, athletes, etc. | ~17,800 | Manual + Wikidata |
+| `organizations.yaml` | Intl orgs, NGOs, agencies, universities | ~13,000 | Manual + Wikidata |
 | `brands.yaml` | Companies and trademarks | ~8,800 | SEC EDGAR + Wikidata |
+| `politicians.yaml` | Heads of state, elected officials | ~3,500 | Manual + Wikidata |
+| `journalists.yaml` | Anchors, commentators, podcasters | ~3,200 | Manual + Wikidata |
+| `influencers.yaml` | Social media creators | ~530 | Manual + Wikidata |
 
 All files are sorted alphabetically by name.
 
@@ -21,11 +21,11 @@ All files are sorted alphabetically by name.
 
 ### People (celebrities, influencers, politicians, journalists)
 
-Hand-curated entries with verified social media handles. Each entry includes the person's actual usernames on major platforms (Twitter/X, Instagram, YouTube, TikTok, Facebook, Threads, Bluesky, Mastodon). These handles serve as the source of truth for verifying someone's identity if they claim the name.
+Seeded from Wikidata by occupation, filtered to people who have at least a Twitter or Instagram account. Supplemented with hand-curated entries. Each entry includes the person's actual usernames on major platforms (Twitter/X, Instagram, YouTube, TikTok, Facebook, Threads, Bluesky, Mastodon). These handles serve as the source of truth for verifying someone's identity if they claim the name.
 
 ### Organizations
 
-Hand-curated entries for major international organizations with their official social handles.
+Seeded from Wikidata covering international organizations, intergovernmental bodies, NGOs, government agencies, sports governing bodies, and universities — all filtered to those with social media presence. Supplemented with hand-curated entries.
 
 ### Brands and companies
 
@@ -103,6 +103,7 @@ These commands are idempotent and can be re-run at any time:
 
 ```bash
 python3 reserved_names.py seed              # Refresh people from Wikidata
+python3 reserved_names.py seed-orgs         # Refresh organizations from Wikidata
 python3 reserved_names.py seed-companies    # Refresh companies from SEC EDGAR
 python3 reserved_names.py seed-trademarks   # Refresh trademarks from Wikidata
 ```
