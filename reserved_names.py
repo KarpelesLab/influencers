@@ -929,5 +929,138 @@ def seed_trademarks(dry_run, min_sitelinks, limit):
     console.print(f"\n[green]Trademark seed complete[/green]: {added} added, {skipped} skipped.")
 
 
+# --- Wikidata organization seeding ---
+
+WIKIDATA_ORG_TYPES = [
+    "Q484652",    # international organization
+    "Q245065",    # intergovernmental organization
+    "Q79913",     # non-governmental organization
+    "Q327333",    # government agency
+    "Q4358176",   # United Nations specialized agency
+    "Q1530022",   # sports governing body
+    "Q476028",    # college/university
+    "Q3918",      # university
+    "Q875538",    # public university
+    "Q15936437",  # research university
+    "Q23002054",  # private university
+]
+
+
+def build_org_query(org_type_qid, limit=2000):
+    """SPARQL query for notable organizations with social handles."""
+    optional_extras = []
+    select_extras = []
+    for platform, prop in WIKIDATA_PLATFORM_PROPS.items():
+        if platform in ("twitter", "instagram"):
+            continue
+        var = f"?{platform}"
+        select_extras.append(var)
+        optional_extras.append(f"  OPTIONAL {{ ?org wdt:{prop} {var} . }}")
+
+    extras_select = " ".join(select_extras)
+    extras_optional = "\n".join(optional_extras)
+
+    return f"""
+SELECT ?org ?orgLabel ?orgDescription ?twitter ?instagram {extras_select}
+WHERE {{
+  ?org wdt:P31/wdt:P279* wd:{org_type_qid} .
+
+  OPTIONAL {{ ?org wdt:P2002 ?twitter . }}
+  OPTIONAL {{ ?org wdt:P2003 ?instagram . }}
+
+{extras_optional}
+
+  FILTER(BOUND(?twitter) || BOUND(?instagram))
+
+  SERVICE wikibase:label {{ bd:serviceParam wikibase:language "en" . }}
+}}
+LIMIT {limit}
+"""
+
+
+@cli.command("seed-orgs")
+@click.option("--dry-run", is_flag=True, help="Show what would be imported without writing.")
+@click.option("--limit", default=2000, help="Max results per org type query.")
+def seed_orgs(dry_run, limit):
+    """Seed organization entries from Wikidata.
+
+    Queries for international orgs, NGOs, government agencies, sports bodies,
+    and universities that have social media presence.
+    Idempotent: skips entries already in organizations.yaml.
+    """
+    existing_entries, filepath = load_category("organization")
+    existing_names = {normalize_username(e.get("name", "")) for e in existing_entries}
+    existing_wikidata = {e.get("wikidata_id") for e in existing_entries if e.get("wikidata_id")}
+    total_added = total_skipped = 0
+    seen_qids = set()
+
+    for org_qid in WIKIDATA_ORG_TYPES:
+        console.print(f"[cyan]Querying Wikidata for org type {org_qid}...[/cyan]")
+        query = build_org_query(org_qid, limit=limit)
+
+        try:
+            results = run_sparql_query(query)
+        except Exception as e:
+            console.print(f"[red]  Query failed: {e}[/red]")
+            time.sleep(5)
+            continue
+
+        console.print(f"  Got {len(results)} results.")
+        added = skipped = 0
+
+        for row in results:
+            entity_uri = row.get("org", {}).get("value", "")
+            qid = entity_uri.rsplit("/", 1)[-1] if entity_uri else None
+            if not qid or qid in seen_qids:
+                continue
+            seen_qids.add(qid)
+
+            name = row.get("orgLabel", {}).get("value", "")
+            if not name or name == qid:
+                skipped += 1
+                continue
+
+            if qid in existing_wikidata or normalize_username(name) in existing_names:
+                skipped += 1
+                continue
+
+            description = row.get("orgDescription", {}).get("value")
+            handles = {}
+            for platform in WIKIDATA_PLATFORM_PROPS:
+                val = row.get(platform, {}).get("value")
+                if val:
+                    handles[platform] = val
+
+            if not handles:
+                skipped += 1
+                continue
+
+            if dry_run:
+                handle_str = ", ".join(f"{p}=@{h}" for p, h in handles.items())
+                console.print(f"  [dim]{name}: {handle_str}[/dim]")
+                added += 1
+                continue
+
+            entry = {"name": name}
+            if description:
+                entry["description"] = description
+            entry["wikidata_id"] = qid
+            entry["handles"] = handles
+            existing_entries.append(entry)
+            existing_names.add(normalize_username(name))
+            existing_wikidata.add(qid)
+            added += 1
+
+        total_added += added
+        total_skipped += skipped
+        time.sleep(5)
+
+    if not dry_run and total_added > 0:
+        existing_entries.sort(key=lambda e: e.get("name", "").lower())
+        save_category(existing_entries, filepath)
+
+    console.print(f"\n[green]Org seed complete[/green]: {total_added} added, {total_skipped} skipped.")
+
+
 if __name__ == "__main__":
     cli()
