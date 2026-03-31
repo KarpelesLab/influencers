@@ -1,0 +1,129 @@
+- name: Addison Rae
+  description: TikTok creator, actress
+  handles:
+    twitter: whoisaddison
+    instagram: addisonraee
+    tiktok: addisonre
+- name: Ariana Grande
+  description: Singer, actress
+  handles:
+    twitter: ArianaGrande
+    instagram: arianagrande
+    youtube: ArianaGrandeVevo
+    tiktok: arianagrande
+    facebook: arianagrande
+    threads: arianagrande
+- name: Beyonce
+  description: Singer, songwriter, actress
+  handles:
+    twitter: Beyonce
+    instagram: beyonce
+    youtube: beyonce
+    facebook: beyonce
+    tiktok: beyonce
+- name: Charli D'Amelio
+  description: TikTok creator, dancer
+  handles:
+    twitter: charlidamelio
+    instagram: charlidamelio
+    tiktok: charlidamelio
+    youtube: charlidamelio
+- name: Cristiano Ronaldo
+  description: Professional footballer
+  handles:
+    twitter: Cristiano
+    instagram: cristiano
+    youtube: cristiano
+    facebook: Cristiano
+    tiktok: cristiano
+- name: Dwayne Johnson
+  description: Actor and professional wrestler
+  handles:
+    twitter: TheRock
+    instagram: therock
+    youtube: therock
+    facebook: DwayneJohnson
+    tiktok: therock
+- name: Elon Musk
+  description: CEO of Tesla and SpaceX
+  handles:
+    twitter: elonmusk
+    instagram: elonmusk
+- name: Khaby Lame
+  description: TikTok creator, comedian
+  handles:
+    twitter: KhabyLame
+    instagram: khaby00
+    tiktok: khaby.lame
+    youtube: KhabyLame
+- name: Kim Kardashian
+  description: Media personality, businesswoman
+  handles:
+    twitter: KimKardashian
+    instagram: kimkardashian
+    facebook: KimKardashian
+    tiktok: kimkardashian
+    threads: kimkardashian
+- name: Kobe Bryant
+  description: Professional basketball player
+  death: '2020-01-26'
+  handles:
+    twitter: kobebryant
+    instagram: kobebryant
+- name: Kylie Jenner
+  description: Media personality, businesswoman
+  handles:
+    twitter: KylieJenner
+    instagram: kyliejenner
+    tiktok: kyliejenner
+    facebook: KylieJenner
+- name: Lionel Messi
+  description: Professional footballer
+  handles:
+    twitter: TeamMessi
+    instagram: leomessi
+    facebook: LeoMessi
+    tiktok: leomessi
+- name: MrBeast
+  description: YouTuber, philanthropist
+  handles:
+    twitter: MrBeast
+    instagram: mrbeast
+    youtube: MrBeast
+    tiktok: mrbeast
+    threads: mrbeast
+- name: Narendra Modi
+  description: Prime Minister of India
+  handles:
+    twitter: narendramodi
+    instagram: narendramodi
+    youtube: NarendraModi
+    facebook: narendramodi
+- name: PewDiePie
+  description: YouTuber
+  handles:
+    twitter: pewdiepie
+    instagram: pewdiepie
+    youtube: PewDiePie
+- name: Selena Gomez
+  description: Singer, actress, producer
+  handles:
+    twitter: selenagomez
+    instagram: selenagomez
+    youtube: SelenaGomez
+    tiktok: selenagomez
+- name: Taylor Swift
+  description: Singer-songwriter
+  handles:
+    twitter: taylorswift13
+    instagram: taylorswift
+    youtube: TaylorSwift
+    tiktok: taylorswift
+    facebook: TaylorSwift
+    threads: taylorswift
+- name: Virat Kohli
+  description: Professional cricketer
+  handles:
+    twitter: imVkohli
+    instagram: virat.kohli
+    facebook: virat.kohli

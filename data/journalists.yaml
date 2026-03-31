@@ -1,0 +1,26 @@
+- name: Anderson Cooper
+  description: CNN anchor
+  handles:
+    twitter: andersoncooper
+    instagram: andersoncooper
+- name: Christiane Amanpour
+  description: CNN chief international anchor
+  handles:
+    twitter: amanpour
+    instagram: camanpour
+- name: Joe Rogan
+  description: Podcaster, commentator
+  handles:
+    twitter: joerogan
+    instagram: joerogan
+    youtube: joerogan
+- name: Rachel Maddow
+  description: MSNBC host
+  handles:
+    twitter: maddow
+    instagram: rachelmaddow
+- name: Tucker Carlson
+  description: Political commentator
+  handles:
+    twitter: TuckerCarlson
+    instagram: tuckercarlson

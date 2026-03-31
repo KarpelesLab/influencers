@@ -1,0 +1,70 @@
+- name: David Dobrik
+  description: YouTuber, social media personality
+  handles:
+    twitter: DavidDobrik
+    instagram: daviddobrik
+    youtube: daviddobrik
+    tiktok: daviddobrik
+- name: Emma Chamberlain
+  description: YouTuber, podcaster
+  handles:
+    twitter: emmachmberlain
+    instagram: emmachamberlain
+    youtube: emmachamberlain
+    tiktok: emmachamberlain
+- name: Huda Kattan
+  description: Beauty influencer, entrepreneur
+  handles:
+    twitter: hudabeauty
+    instagram: hudabeauty
+    youtube: hudabeauty
+    tiktok: hudabeauty
+- name: Jake Paul
+  description: YouTuber, boxer
+  handles:
+    twitter: jakepaul
+    instagram: jakepaul
+    youtube: jakepaul
+    tiktok: jakepaul
+- name: Lele Pons
+  description: Internet personality, singer
+  handles:
+    twitter: lelepons
+    instagram: lelepons
+    tiktok: lelepons
+    youtube: lelepons
+- name: Logan Paul
+  description: YouTuber, wrestler, entrepreneur
+  handles:
+    twitter: LoganPaul
+    instagram: loganpaul
+    youtube: loganpaul
+    tiktok: loganpaul
+- name: Markiplier
+  description: YouTuber, gaming content creator
+  handles:
+    twitter: markiplier
+    instagram: markiplier
+    youtube: markiplier
+    tiktok: markiplier
+- name: Ninja
+  description: Professional gamer, streamer
+  handles:
+    twitter: Ninja
+    instagram: ninja
+    youtube: Ninja
+    tiktok: ninja
+- name: Pokimane
+  description: Twitch streamer, content creator
+  handles:
+    twitter: pokimane
+    instagram: pokimane
+    youtube: pokimane
+    tiktok: pokimane
+- name: Zach King
+  description: Digital illusionist, filmmaker
+  handles:
+    twitter: FinalCutKing
+    instagram: zachking
+    tiktok: zachking
+    youtube: ZachKingVine

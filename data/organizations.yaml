@@ -1,0 +1,47 @@
+- name: FIFA
+  description: International football governing body
+  handles:
+    twitter: FIFAcom
+    instagram: fifa
+    youtube: FIFATV
+    facebook: fifa
+    tiktok: fifa
+- name: NASA
+  description: U.S. space agency
+  handles:
+    twitter: NASA
+    instagram: nasa
+    youtube: NASA
+    facebook: NASA
+    tiktok: nasa
+    threads: nasa
+- name: Olympics
+  description: International Olympic Committee
+  handles:
+    twitter: Olympics
+    instagram: olympics
+    youtube: Olympics
+    facebook: olympics
+    tiktok: olympics
+- name: Red Cross
+  description: Humanitarian organization
+  handles:
+    twitter: RedCross
+    instagram: americanredcross
+    facebook: redcross
+    youtube: AmericanRedCross
+- name: United Nations
+  description: International organization
+  handles:
+    twitter: UN
+    instagram: unitednations
+    youtube: unitednations
+    facebook: unitednations
+    tiktok: unitednations
+- name: WHO
+  description: World Health Organization
+  handles:
+    twitter: WHO
+    instagram: who
+    youtube: WHO
+    facebook: WHO

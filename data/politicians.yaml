@@ -1,0 +1,54 @@
+- name: Alexandria Ocasio-Cortez
+  description: U.S. Representative, NY-14
+  handles:
+    twitter: AOC
+    instagram: aoc
+    tiktok: aoc
+    threads: aoc
+- name: Barack Obama
+  description: 44th President of the United States
+  handles:
+    twitter: BarackObama
+    instagram: barackobama
+    facebook: barackobama
+    youtube: BarackObamadotcom
+    threads: barackobama
+- name: Bernie Sanders
+  description: U.S. Senator from Vermont
+  handles:
+    twitter: BernieSanders
+    instagram: berniesanders
+    facebook: berniesanders
+    youtube: SenatorSanders
+- name: Donald Trump
+  description: 45th and 47th President of the United States
+  handles:
+    twitter: realDonaldTrump
+    facebook: DonaldTrump
+- name: Emmanuel Macron
+  description: President of France
+  handles:
+    twitter: EmmanuelMacron
+    instagram: emmanuelmacron
+    facebook: EmmanuelMacron
+    tiktok: emmanuelmacron
+- name: Joe Biden
+  description: 46th President of the United States
+  handles:
+    twitter: JoeBiden
+    instagram: joebiden
+    facebook: joebiden
+    threads: joebiden
+- name: Justin Trudeau
+  description: Prime Minister of Canada
+  handles:
+    twitter: JustinTrudeau
+    instagram: justinpjtrudeau
+    facebook: JustinTrudeau
+    tiktok: justintrudeau
+- name: Volodymyr Zelenskyy
+  description: President of Ukraine
+  handles:
+    twitter: ZelenskyyUa
+    instagram: zelenskiy_official
+    facebook: zelenskiy.official
